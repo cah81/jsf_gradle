@@ -1,0 +1,62 @@
+plugins {
+    id 'java'
+    id 'war'
+    id 'eclipse'
+    id 'eclipse-wtp'
+}
+
+
+
+group 'com.ecodeup.jpa_jsf_crud'
+version '0.0.1-SNAPSHOT'
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+    baseName = 'JSF_JPA_CRUD'
+    version =  '0.0.1-SNAPSHOT'
+    
+}
+
+
+
+
+dependencies {
+   testImplementation group: 'junit', name: 'junit', version: '4.13.2'
+   //compileOnly 'javax.servlet:javax.servlet-api:3.0.1'
+   implementation 'javax.persistence:javax.persistence-api:2.2'
+   implementation 'mysql:mysql-connector-java:8.0.27'
+   implementation 'org.hibernate:hibernate-core:5.3.6.Final'
+   implementation 'com.sun.faces:jsf-api:2.2.17'
+   implementation 'com.sun.faces:jsf-impl:2.2.17'
+
+
+}
+
+
+eclipse {
+    project {
+        natures 'org.springsource.ide.eclipse.gradle.core.nature', 'org.eclipse.jdt.groovy.core.groovyNature', 'org.eclipse.wst.common.project.facet.core.nature'
+    }
+    classpath {
+        containers 'org.springsource.ide.eclipse.gradle.classpathcontainer'
+    }
+    wtp {
+        facet {
+            facet name: 'jst.web', version: '3.0'
+            facet name: 'java', version: '1.8'
+        }
+    }
+    jdt {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+}
+
+
+
